@@ -34,6 +34,7 @@ function addListaTarefa(tarefa){
 
 function criarTagLi(tarefa){
     let li = document.createElement('li');
+    li.id = tarefa.id;
 
     let spam = document.createElement('spam');
     spam.classList.add('textoTarefa')
@@ -62,9 +63,17 @@ function criarTagLi(tarefa){
 }
 
 function editar(idtarefa){
-    alert(idtarefa);
+    if(li) {
+        listaTarefa.removeChild(li);
+    }
 }
 
 function excluir(idtarefa){
-    alert(idtarefa);
+    let confirmaçao = window.confirm("deseja excluir?")
+    if (confirmaçao){
+        let li = document.getElementById('' + idtarefa + '');
+        if(li) {
+            listaTarefa.removeChild(li);
+        }
+    }
 }
